@@ -29,7 +29,7 @@ var s = function (p) {
     py=y;
 
     if(p.mouseIsPressed){
-      px = p.mouseX ;
+      px = p.mouseX;
       py = p.mouseY;
     }
 
@@ -37,11 +37,11 @@ var s = function (p) {
     y = p.noise(noiseSeedY) * p.height;
 
 
-    p.stroke(p.map(p.dist(px, py, p.width / 2, p.height / 2), 0, p.width, 0, 255), 200, 200, 0.7);
+    p.stroke(p.map(p.dist(px, py, p.width / 2, p.height / 2), 0, p.width, 0, 255), 200, 200, 0.5);
 
-    var weight = p.dist(x, y, p.width / 3, p.height / 3);
+    var weight = p.dist(x, y, p.width / 2, p.height / 2);
 
-    weight = p.map(weight, 0, halfWidth, 0.5, 1.0);
+    weight = p.map(weight, 0, halfWidth, 0.5, 8.0);
 
     p.strokeWeight(weight);
 
