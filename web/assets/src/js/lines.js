@@ -36,7 +36,7 @@ var s = function (p) {
     x = p.width * p.noise(noiseSeedX);
     y = p.noise(noiseSeedY) * p.height;
 
-    console.log(p.dist(x, p.width / 2, y, p.height / 2));
+
     p.stroke(p.map(p.dist(px, py, p.width / 2, p.height / 2), 0, p.width, 0, 255), 200, 200, 0.7);
 
     var weight = p.dist(x, y, p.width / 3, p.height / 3);
