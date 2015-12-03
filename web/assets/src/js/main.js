@@ -13,30 +13,40 @@ var s = function (p) {
     p.stroke(255);
     p.colorMode(p.HSB);
     p.background(255);
+    p.textFont("Helvetica ");
     var halfWidth = p.width / 2;
     var halfHeight = p.height / 2;
   }
 
   p.draw = function () {
-    p.fill(255, 0.05);
+
+    p.fill(255, 0.09);
     p.noStroke();
     p.rect(0, 0, p.width, p.height);
 
-    px = x;
-    py = y;
+    px=x;
+    py=y;
 
-    x = p.map(p.noise(noiseSeedX), 0, 1, 0, p.width);
-    y = p.map(p.noise(noiseSeedY), 0, 1, 0, p.height);
+    if(p.mouseIsPressed){
+      px = p.mouseX ;
+      py = p.mouseY;
+    }
+
+    x = p.width * p.noise(noiseSeedX);
+    y = p.noise(noiseSeedY) * p.height;
 
 
-    p.stroke(p.map(p.dist(x, px, y, py), 0, 1000, 0, 255), 200, 200,0.5);
-    var weight = p.dist(x, y, p.width / 3, p.height / 3);
+      p.stroke(p.map(p.dist(x, px, y, py), 0, p.width / 2, 0, 360), 200, 200, 0.7);
 
-    weight = p.map(weight, 0, 1000, 1, 1.9);
-    p.strokeWeight(weight);
+      var weight = p.dist(x, y, p.width / 3, p.height / 3);
 
-    drawLines(x, y, px, py);
-    noiseSeedX += 0.01;
+      weight = p.map(weight, 0, halfWidth, 0.5, 1.0);
+
+      p.strokeWeight(weight);
+
+      drawLines(x, y, px, py);
+
+    noiseSeedX += 0.001;
     noiseSeedY += 0.004;
 
   }
@@ -53,12 +63,19 @@ var s = function (p) {
   }
 
   p.mouseDragged = function () {
-    p.stroke(100, 30, 200);
+    p.stroke(10, 0, 0, 0.1);
     x = p.mouseX;
     y = p.mouseY;
-    px = p.pmouseX;
-    py = p.pmouseY;
+    px = p.sin(x*Math.PI)*-10* p.width;
+    py = p.sin(px)* p.height;
     drawLines(x, y, px, py);
+  }
+
+  p.mouseReleased = function(){
+    p.background(255);
+  }
+
+  p.mousePressed = function(){
   }
 
   p.keyPressed = function () {
@@ -68,9 +85,11 @@ var s = function (p) {
       case 32 :
       { // spacebar
         p.stroke(0);
+        p.fill(0);
+        p.strokeWeight(0.7);
         p.text("Crafted with <3 by Paperpixel Studio", 10, p.height-20);
 
-        p.save("symetric_lines-" + p.frameCount + ".png");
+        p.save("paperpixel-studio-" + p.millis() + ".png");
         p.background(255);
         break;
       }
