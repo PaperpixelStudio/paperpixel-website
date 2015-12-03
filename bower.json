@@ -1,0 +1,21 @@
+{
+  "name": "paperpixel-boilerplate",
+  "version": "0.0.0",
+  "authors": [
+    "Jonathan Berger <jonathan@paperpixel.net>"
+  ],
+  "description": "Boilerplate structure and tools for our projects",
+  "main": "web/index.html",
+  "homepage": "http://paperpixel.net",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0"
+  }
+}

@@ -1,0 +1,7 @@
+### Project
+web/assets/vendor
+node_modules
+npm-debug.log
+
+### Environment
+.idea
