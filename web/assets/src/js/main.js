@@ -18,7 +18,7 @@ var s = function (p) {
   }
 
   p.draw = function () {
-    p.fill(255, 10);
+    p.fill(255, 0.05);
     p.noStroke();
     p.rect(0, 0, p.width, p.height);
 
@@ -28,12 +28,8 @@ var s = function (p) {
     x = p.map(p.noise(noiseSeedX), 0, 1, 0, p.width);
     y = p.map(p.noise(noiseSeedY), 0, 1, 0, p.height);
 
-    if (x >= p.width / 2 && p.frameCount % 30 == 0) {
-      x = 0;
-      y = p.height * Math.random(1);
-    }
 
-    p.stroke(p.map(p.dist(x, px, y, py), 0, 1000, 0, 255), 200, 200);
+    p.stroke(p.map(p.dist(x, px, y, py), 0, 1000, 0, 255), 200, 200,0.5);
     var weight = p.dist(x, y, p.width / 3, p.height / 3);
 
     weight = p.map(weight, 0, 1000, 1, 1.9);
@@ -71,7 +67,11 @@ var s = function (p) {
 
       case 32 :
       { // spacebar
+        p.stroke(0);
+        p.text("Crafted with <3 by Paperpixel Studio", 10, p.height-20);
+
         p.save("symetric_lines-" + p.frameCount + ".png");
+        p.background(255);
         break;
       }
     }
