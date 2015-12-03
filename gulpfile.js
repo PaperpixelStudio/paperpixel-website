@@ -38,7 +38,7 @@ gulp.task('watch', function () {
 
 gulp.task('watch-p5js', function() {
   plugins.livereload.listen();
-  gulp.watch('web/assets/src/lines.js', ['p5js']);
+  gulp.watch('web/assets/src/js/lines.js', ['p5js']);
   gulp.watch('web/assets/dist/**').on('change', plugins.livereload.changed);
 });
 

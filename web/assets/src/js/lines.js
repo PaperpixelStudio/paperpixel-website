@@ -1,6 +1,7 @@
 var s = function (p) {
 
-  var x, y, px, py = 0;
+  var y, py = 0;
+  var x, px = 0;
   var halfWidth;
   var halfHeight;
   var noiseSeedX = 0.1;
@@ -14,8 +15,8 @@ var s = function (p) {
     p.colorMode(p.HSB);
     p.background(255);
     p.textFont("Helvetica ");
-    var halfWidth = p.width / 2;
-    var halfHeight = p.height / 2;
+
+    x= px = c.width;
   }
 
   p.draw = function () {
@@ -46,8 +47,8 @@ var s = function (p) {
 
     drawLines(x, y, px, py);
 
-    noiseSeedX += 0.001;
-    noiseSeedY += 0.004;
+    noiseSeedX -= 0.001;
+    noiseSeedY += 0.04;
 
   }
 
@@ -67,12 +68,12 @@ var s = function (p) {
     x = p.mouseX;
     y = p.mouseY;
     px = p.sin(x*Math.PI)*-10* p.width;
-    py = p.sin(px)* p.height;
+    py = p.sin(px)* p.pmouseY;
     drawLines(x, y, px, py);
   }
 
   p.mouseReleased = function(){
-    p.background(255);
+    //p.background(255);
   }
 
   p.mousePressed = function(){
@@ -92,6 +93,9 @@ var s = function (p) {
         p.save("paperpixel-studio-" + p.millis() + ".png");
         p.background(255);
         break;
+      }
+      default:{
+        p.background(255);
       }
     }
   }
