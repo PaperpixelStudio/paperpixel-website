@@ -1,17 +1,7 @@
-Paperpixel Boilerplate
-====
+Paperpixel Website
+=
 
-Based on HTML 5 Boilerplate.
+Brace yourself, our website is coming.
 
-Tools
-----
-* Gulp
-* Bower
-* Less
-* Livereload + watch
+For now it's just a landing page, but one day it will be a beautiful portfolio.
 
-Libraries
-----
-* Twitter Bootstrap
-* Font Awesome
-* jQuery
