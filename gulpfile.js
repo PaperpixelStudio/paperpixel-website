@@ -5,28 +5,12 @@ var gulp = require('gulp'),
 var basepath = './web/assets/';
 
 var js_files = [
-  //basepath + 'vendor/jquery/dist/jquery.js',
-
-  // bootstrap - uncomment needed files
-  //basepath + 'vendor/bootstrap/js/transition.js',
-  //basepath + 'vendor/bootstrap/js/alert.js',
-  //basepath + 'vendor/bootstrap/js/button.js',
-  //basepath + 'vendor/bootstrap/js/carousel.js',
-  //basepath + 'vendor/bootstrap/js/collapse.js',
-  //basepath + 'vendor/bootstrap/js/dropdown.js',
-  //basepath + 'vendor/bootstrap/js/modal.js',
-  //basepath + 'vendor/bootstrap/js/tooltip.js',
-  //basepath + 'vendor/bootstrap/js/popover.js',
-  //basepath + 'vendor/bootstrap/js/scrollspy.js',
-  //basepath + 'vendor/bootstrap/js/tab.js',
-  //basepath + 'vendor/bootstrap/js/affix.js',
-
+  basepath + 'vendor/p5.js/lib/p5.min.js',
   basepath + 'src/js/main.js'
 ];
 
 gulp.task('js', function () {
   return gulp.src(js_files)
-    .pipe(plugins.modernizr())
     .pipe(plugins.concat('scripts.js'))
     .pipe(gulp.dest(basepath + 'dist'))
     .pipe(plugins.rename('scripts.min.js'))
