@@ -88,7 +88,7 @@ gulp.task('generate-favicon', function(done) {
         pictureAspect: 'noChange',
         themeColor: '#ffffff',
         manifest: {
-          name: 'REstore Design',
+          name: 'Paperpixel',
           display: 'browser',
           orientation: 'notSet',
           onConflict: 'override'

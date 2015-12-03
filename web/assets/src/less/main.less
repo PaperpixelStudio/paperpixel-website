@@ -2,3 +2,49 @@
 @import "variables";
 @import "bootstrap";
 
+
+#content-container {
+    padding: 0 20px;
+
+    @media(min-width: @screen-sm-min) {
+        padding: 0;
+        width: 620px;
+        margin: auto;
+    }
+}
+
+html {
+    font-family: @font-family-base;
+    font-size: 18px;
+    color: @text-color;
+}
+
+.p5 {
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#content-container {
+    header#page-header {
+        h1 {
+            font-weight: 900;
+            color: @title-color;
+            font-size: 3.5rem;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: @link-color;
+        font-weight: 900;
+
+        &:hover {
+            //color: @brand-primary;
+            border-bottom: solid @link-color 3px;
+        }
+    }
+}

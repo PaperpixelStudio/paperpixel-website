@@ -1301,3 +1301,39 @@ th {
     display: none !important;
   }
 }
+#content-container {
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  #content-container {
+    padding: 0;
+    width: 620px;
+    margin: auto;
+  }
+}
+html {
+  font-family: 'San Fransisco', Roboto, 'Segoe UI', Helvetica Neue, Arial, sans-serif;
+  font-size: 18px;
+  color: #9B9B9B;
+}
+.p5 {
+  position: absolute;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#content-container header#page-header h1 {
+  font-weight: 900;
+  color: #000;
+  font-size: 3.5rem;
+}
+#content-container a {
+  text-decoration: none;
+  color: #4a4a4a;
+  font-weight: 900;
+}
+#content-container a:hover {
+  border-bottom: solid #4a4a4a 3px;
+}
