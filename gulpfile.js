@@ -4,6 +4,13 @@ var gulp = require('gulp'),
 
 var basepath = './web/assets/';
 
+gulp.task('js', function() {
+  return gulp.src(basepath + 'src/js/main.js')
+    .pipe(plugins.concat('scripts.min.js'))
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest(basepath + 'dist'));
+});
+
 gulp.task('p5js', function () {
   return gulp.src([
     basepath + 'vendor/p5.js/lib/p5.min.js',
