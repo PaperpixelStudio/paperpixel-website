@@ -4,16 +4,12 @@ var gulp = require('gulp'),
 
 var basepath = './web/assets/';
 
-var js_files = [
-  basepath + 'vendor/p5.js/lib/p5.min.js',
-  basepath + 'src/js/main.js'
-];
-
-gulp.task('js', function () {
-  return gulp.src(js_files)
-    .pipe(plugins.concat('scripts.js'))
-    .pipe(gulp.dest(basepath + 'dist'))
-    .pipe(plugins.rename('scripts.min.js'))
+gulp.task('p5js', function () {
+  return gulp.src([
+    basepath + 'vendor/p5.js/lib/p5.min.js',
+    basepath + 'src/js/lines.js'
+  ])
+    .pipe(plugins.concat('lines.min.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest(basepath + 'dist'));
 });
@@ -37,6 +33,12 @@ gulp.task('watch', function () {
   gulp.watch('web/assets/src/**/*.js', ['js']);
 
   gulp.watch('web/**/*.html').on('change', plugins.livereload.changed);
+  gulp.watch('web/assets/dist/**').on('change', plugins.livereload.changed);
+});
+
+gulp.task('watch-p5js', function() {
+  plugins.livereload.listen();
+  gulp.watch('web/assets/src/lines.js', ['p5js']);
   gulp.watch('web/assets/dist/**').on('change', plugins.livereload.changed);
 });
 
