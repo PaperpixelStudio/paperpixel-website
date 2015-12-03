@@ -3,20 +3,12 @@
 @import "bootstrap";
 
 
-#content-container {
-    padding: 0 20px;
-
-    @media(min-width: @screen-sm-min) {
-        padding: 0;
-        width: 620px;
-        margin: auto;
-    }
-}
 
 html {
     font-family: @font-family-base;
     font-size: 18px;
     color: @text-color;
+    line-height: 1.4;
 }
 
 .p5 {
@@ -29,12 +21,44 @@ html {
 }
 
 #content-container {
+    padding: 0 30px;
+
+    @media(min-width: @screen-sm-min) {
+        padding: 0;
+        width: 620px;
+        margin: auto;
+        
+        @media(min-width: @screen-md-min) {
+            margin-top: 150px;
+        }
+    }
+
+
     header#page-header {
         h1 {
             font-weight: 900;
             color: @title-color;
-            font-size: 3.5rem;
+            font-size: 2rem;
+            line-height: 1;
+
+            @media(min-width: @screen-sm-min) {
+                font-size: 3.5rem;
+            }
         }
+    }
+
+    #content {
+        -webkit-columns: 300px 2;
+        -moz-columns: 300px 2;
+        columns: 300px 2;
+        -webkit-column-gap: 10px;
+        -moz-column-gap: 10px;
+        column-gap: 10px;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 10px;
     }
 
     a {
