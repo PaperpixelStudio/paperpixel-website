@@ -36,8 +36,8 @@ var s = function (p) {
     x = p.width * p.noise(noiseSeedX);
     y = p.noise(noiseSeedY) * p.height;
 
-
-    p.stroke(p.map(p.dist(x, px, y, py), 0, p.width / 2, 0, 360), 200, 200, 0.7);
+    console.log(p.dist(x, p.width / 2, y, p.height / 2));
+    p.stroke(p.map(p.dist(px, py, p.width / 2, p.height / 2), 0, p.width, 0, 255), 200, 200, 0.7);
 
     var weight = p.dist(x, y, p.width / 3, p.height / 3);
 
@@ -48,7 +48,7 @@ var s = function (p) {
     drawLines(x, y, px, py);
 
     noiseSeedX -= 0.001;
-    noiseSeedY += 0.04;
+    noiseSeedY += 0.009;
 
   }
 
@@ -68,7 +68,7 @@ var s = function (p) {
     x = p.mouseX;
     y = p.mouseY;
     px = p.sin(x*Math.PI)*-10* p.width;
-    py = p.sin(px)* p.pmouseY;
+    py = p.sin(y)* p.pmouseY;
     drawLines(x, y, px, py);
   }
 
